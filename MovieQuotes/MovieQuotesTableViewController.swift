@@ -9,17 +9,27 @@
 import UIKit
 
 class MovieQuotesTableViewController: UITableViewController {
-var names = ["Dave", "Kristy", "McKinley", "Keegan", "Bowen", "Neala"]
 
+  let movieQuoteCellIdentifier = "MovieQuoteCell"
+  var movieQuotes = [MovieQuote]()
+
+
+  override func viewDidLoad() {
+    movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
+    movieQuotes.append(MovieQuote(quote: "Yo Adrian!", movie: "Rocky"))
+  }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "MovieQuoteCell", for: indexPath)
-    cell.textLabel?.text = names[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: movieQuoteCellIdentifier,
+                                             for: indexPath)
+    let movieQuote = movieQuotes[indexPath.row]
+    cell.textLabel?.text = movieQuote.quote
+    cell.detailTextLabel?.text = movieQuote.movie
     return cell
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    names.count
+    movieQuotes.count
   }
 
 }
