@@ -7,21 +7,49 @@
 //
 
 import UIKit
+import Firebase
 
 class MovieQuotesTableViewController: UITableViewController {
 
   let movieQuoteCellIdentifier = "MovieQuoteCell"
   let showDetailSequeIdentifier = "ShowDetailSeque"
   var movieQuotes = [MovieQuote]()
-
+  var quotesRef: CollectionReference!
+  var quotesListener: ListenerRegistration!
 
   override func viewDidLoad() {
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                         target: self,
                                                         action: #selector(showAddQuoteDialog))
     navigationItem.leftBarButtonItem = editButtonItem
-    movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
-    movieQuotes.append(MovieQuote(quote: "Yo Adrian!", movie: "Rocky"))
+    //    movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
+    //    movieQuotes.append(MovieQuote(quote: "Yo Adrian!", movie: "Rocky"))
+    quotesRef = Firestore.firestore().collection("MovieQuotes")
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
+    quotesListener = quotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener() { (querySnapshot, error) in
+      if let querySnapshot = querySnapshot {
+        self.movieQuotes.removeAll()
+        querySnapshot.documents.forEach { (documentSnapshot) in
+          print(documentSnapshot.documentID)
+          print(documentSnapshot.data())
+          let newMovieQuote = MovieQuote(documentSnapshot: documentSnapshot)
+          self.movieQuotes.append(newMovieQuote)
+        }
+        self.tableView.reloadData()
+      } else {
+        print("Error fetching snapshots: \(error!)")
+        return
+      }
+    }
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    quotesListener.remove()
   }
 
   @objc func showAddQuoteDialog() {
@@ -39,9 +67,15 @@ class MovieQuotesTableViewController: UITableViewController {
       let movieTextField = alertController.textFields![1] as UITextField
       //      print("Quote: \(quoteTextField.text!)")
       //      print("Movie: \(movieTextField.text!)")
-      let newMovieQuote = MovieQuote(quote: quoteTextField.text!, movie: movieTextField.text!)
-      self.movieQuotes.insert(newMovieQuote, at: 0)
-      self.tableView.reloadData()
+
+      //      let newMovieQuote = MovieQuote(quote: quoteTextField.text!, movie: movieTextField.text!)
+      //      self.movieQuotes.insert(newMovieQuote, at: 0)
+      //      self.tableView.reloadData()
+      self.quotesRef.addDocument(data: [
+        "quote": quoteTextField.text!,
+        "movie": movieTextField.text!,
+        "created": Timestamp.init()
+      ])
     }
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
       (action) -> Void in
@@ -68,7 +102,9 @@ class MovieQuotesTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      movieQuotes.remove(at: indexPath.row)
+      let movieQuoteToDelete = movieQuotes[indexPath.row]
+      quotesRef.document(movieQuoteToDelete.id!).delete()
+//      movieQuotes.remove(at: indexPath.row)
       tableView.reloadData()
     }
   }
@@ -86,9 +122,5 @@ class MovieQuotesTableViewController: UITableViewController {
     }
   }
 
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    tableView.reloadData()
-  }
 
 }
