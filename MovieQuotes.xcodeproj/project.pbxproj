@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47BFF48C6A66177F4509E50B /* Pods_MovieQuotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B38E60ABE5B5B353B0926C /* Pods_MovieQuotes.framework */; };
 		FD6F6977245884FF00FABEB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F6976245884FF00FABEB0 /* AppDelegate.swift */; };
 		FD6F6979245884FF00FABEB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F6978245884FF00FABEB0 /* SceneDelegate.swift */; };
 		FD6F6980245884FF00FABEB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6F697E245884FF00FABEB0 /* Main.storyboard */; };
@@ -15,9 +16,13 @@
 		FD6F698F24588D2000FABEB0 /* MovieQuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F698E24588D2000FABEB0 /* MovieQuotesTableViewController.swift */; };
 		FD6F699124588EF400FABEB0 /* MovieQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F699024588EF400FABEB0 /* MovieQuote.swift */; };
 		FD6F69932458948300FABEB0 /* MovieQuoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F69922458948300FABEB0 /* MovieQuoteDetailViewController.swift */; };
+		FD6F69BF245C5D9500FABEB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD6F69BE245C5D9500FABEB0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		117C7CD1DE54B07579A6DA11 /* Pods-MovieQuotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes.release.xcconfig"; sourceTree = "<group>"; };
+		27B38E60ABE5B5B353B0926C /* Pods_MovieQuotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieQuotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31804838475307A3787BB816 /* Pods-MovieQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes.debug.xcconfig"; sourceTree = "<group>"; };
 		FD6F6973245884FF00FABEB0 /* MovieQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD6F6976245884FF00FABEB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD6F6978245884FF00FABEB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		FD6F698E24588D2000FABEB0 /* MovieQuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesTableViewController.swift; sourceTree = "<group>"; };
 		FD6F699024588EF400FABEB0 /* MovieQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuote.swift; sourceTree = "<group>"; };
 		FD6F69922458948300FABEB0 /* MovieQuoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuoteDetailViewController.swift; sourceTree = "<group>"; };
+		FD6F69BE245C5D9500FABEB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47BFF48C6A66177F4509E50B /* Pods_MovieQuotes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		299671AC6DF3C7EB37E3F902 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27B38E60ABE5B5B353B0926C /* Pods_MovieQuotes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0F4668D3FD6A9A80E5912C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31804838475307A3787BB816 /* Pods-MovieQuotes.debug.xcconfig */,
+				117C7CD1DE54B07579A6DA11 /* Pods-MovieQuotes.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FD6F696A245884FF00FABEB0 = {
 			isa = PBXGroup;
 			children = (
 				FD6F6975245884FF00FABEB0 /* MovieQuotes */,
 				FD6F6974245884FF00FABEB0 /* Products */,
+				A0F4668D3FD6A9A80E5912C6 /* Pods */,
+				299671AC6DF3C7EB37E3F902 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 		FD6F6975245884FF00FABEB0 /* MovieQuotes */ = {
 			isa = PBXGroup;
 			children = (
+				FD6F69BE245C5D9500FABEB0 /* GoogleService-Info.plist */,
 				FD6F6976245884FF00FABEB0 /* AppDelegate.swift */,
 				FD6F6978245884FF00FABEB0 /* SceneDelegate.swift */,
 				FD6F697E245884FF00FABEB0 /* Main.storyboard */,
@@ -80,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD6F69892458850000FABEB0 /* Build configuration list for PBXNativeTarget "MovieQuotes" */;
 			buildPhases = (
+				9F74DD47AE1D10B946B80654 /* [CP] Check Pods Manifest.lock */,
 				FD6F696F245884FF00FABEB0 /* Sources */,
 				FD6F6970245884FF00FABEB0 /* Frameworks */,
 				FD6F6971245884FF00FABEB0 /* Resources */,
+				C9D826815A193B27BF2657FA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,12 +161,68 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD6F69852458850000FABEB0 /* LaunchScreen.storyboard in Resources */,
+				FD6F69BF245C5D9500FABEB0 /* GoogleService-Info.plist in Resources */,
 				FD6F69822458850000FABEB0 /* Assets.xcassets in Resources */,
 				FD6F6980245884FF00FABEB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9F74DD47AE1D10B946B80654 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MovieQuotes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9D826815A193B27BF2657FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FD6F696F245884FF00FABEB0 /* Sources */ = {
@@ -290,16 +375,14 @@
 		};
 		FD6F698A2458850000FABEB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31804838475307A3787BB816 /* Pods-MovieQuotes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TGL44JG796;
 				INFOPLIST_FILE = MovieQuotes/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.rose-hulman.fisherds.MovieQuotes";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.rose-hulman.fisherds.MovieQuotes2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -308,16 +391,14 @@
 		};
 		FD6F698B2458850000FABEB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 117C7CD1DE54B07579A6DA11 /* Pods-MovieQuotes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TGL44JG796;
 				INFOPLIST_FILE = MovieQuotes/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "edu.rose-hulman.fisherds.MovieQuotes";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.rose-hulman.fisherds.MovieQuotes2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
