@@ -16,11 +16,17 @@ class MovieQuotesTableViewController: UITableViewController {
   var movieQuotes = [MovieQuote]()
   var movieQuotesRef: CollectionReference!
   var quotesListener: ListenerRegistration!
+  var isShowingAllQuotes = true
 
   override func viewDidLoad() {
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+    //    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "☰",
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu",
+                                                        style: UIBarButtonItem.Style.plain,
                                                         target: self,
-                                                        action: #selector(showAddQuoteDialog))
+                                                        action: #selector(showMenu))
+    //    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+    //                                                        target: self,
+    //                                                        action: #selector(showAddQuoteDialog))
     navigationItem.leftBarButtonItem = editButtonItem
     //    movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
     //    movieQuotes.append(MovieQuote(quote: "Yo Adrian!", movie: "Rocky"))
@@ -29,8 +35,33 @@ class MovieQuotesTableViewController: UITableViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+
+    if (Auth.auth().currentUser == nil) {
+      Auth.auth().signInAnonymously { (user, error) in
+        if (error == nil) {
+          print("You are now signed in using Anonymous auth.  Congrats!")
+        }
+      }
+    } else {
+      print("You are already signed in.")
+    }
+
     tableView.reloadData()
-    quotesListener = movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener() { (querySnapshot, error) in
+    addListener()
+  }
+
+  func addListener() {
+    if (quotesListener != nil) {
+      quotesListener.remove()
+    }
+    var query = movieQuotesRef
+      .order(by: "created", descending: true)
+      .limit(to: 50)
+    let currentUid = Auth.auth().currentUser!.uid
+    if !isShowingAllQuotes {
+      query = query.whereField("author", isEqualTo: currentUid)
+    }
+    quotesListener = query.addSnapshotListener() { (querySnapshot, error) in
       if let querySnapshot = querySnapshot {
         self.movieQuotes.removeAll()
         querySnapshot.documents.forEach { (documentSnapshot) in
@@ -50,6 +81,31 @@ class MovieQuotesTableViewController: UITableViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     quotesListener.remove()
+  }
+
+  @objc func showMenu() {
+    let alertController = UIAlertController(title: nil,
+                                            message: nil,
+                                            preferredStyle: .actionSheet)
+
+    let showOnlyMyQuotesToggle = UIAlertAction(title: isShowingAllQuotes ? "Show only my quotes" : "Show all quotes",
+                                               style: UIAlertAction.Style.default) { (action) -> Void in
+                                                self.isShowingAllQuotes = !self.isShowingAllQuotes
+                                                self.addListener()
+    }
+    let addQuoteAction = UIAlertAction(title: "Create a quote",
+                                       style: UIAlertAction.Style.default) { (action) -> Void in
+                                        self.showAddQuoteDialog()
+    }
+    let cancelAction = UIAlertAction(title: "Cancel",
+                                     style: UIAlertAction.Style.cancel) {
+                                      (action) -> Void in
+                                      print("You pressed cancel")
+    }
+    alertController.addAction(showOnlyMyQuotesToggle)
+    alertController.addAction(addQuoteAction)
+    alertController.addAction(cancelAction)
+    present(alertController, animated: true, completion: nil)
   }
 
   @objc func showAddQuoteDialog() {
@@ -74,7 +130,8 @@ class MovieQuotesTableViewController: UITableViewController {
       self.movieQuotesRef.addDocument(data: [
         "quote": quoteTextField.text!,
         "movie": movieTextField.text!,
-        "created": Timestamp.init()
+        "created": Timestamp.init(),
+        "author": Auth.auth().currentUser!.uid
       ])
     }
     let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel) {
@@ -98,6 +155,10 @@ class MovieQuotesTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     movieQuotes.count
+  }
+
+  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return Auth.auth().currentUser!.uid == movieQuotes[indexPath.row].author
   }
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
