@@ -7,6 +7,82 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="xe4-IK-3Of">
+            <objects>
+                <viewController id="MOG-nF-RwB" customClass="LoginViewController" customModule="MovieQuotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wvy-Y8-43I">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaf-BA-mng">
+                                <rect key="frame" x="20" y="108" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9r-xb-sFE">
+                                <rect key="frame" x="20" y="192" width="125" height="30"/>
+                                <state key="normal" title="New User Sign Up"/>
+                                <connections>
+                                    <action selector="pressedSignUp:" destination="MOG-nF-RwB" eventType="touchUpInside" id="kTu-u4-on8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHe-vo-YwT">
+                                <rect key="frame" x="253" y="192" width="141" height="30"/>
+                                <state key="normal" title="Existing User Sign In"/>
+                                <connections>
+                                    <action selector="pressedLoginIn:" destination="MOG-nF-RwB" eventType="touchUpInside" id="aVf-CI-oW9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5x-ps-AK5">
+                                <rect key="frame" x="20" y="150" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ss1-h8-G7C">
+                                <rect key="frame" x="87" y="454.5" width="240" height="41"/>
+                                <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="NBv-OG-hNL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Sign in with Rosefire">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedRosefireLogin:" destination="MOG-nF-RwB" eventType="touchUpInside" id="7rK-Q5-RUv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Unk-t8-Vy6" firstAttribute="trailing" secondItem="xHe-vo-YwT" secondAttribute="trailing" constant="20" id="1sd-mo-Avl"/>
+                            <constraint firstItem="L9r-xb-sFE" firstAttribute="leading" secondItem="Unk-t8-Vy6" secondAttribute="leading" constant="20" id="2vI-YD-S5i"/>
+                            <constraint firstItem="Ss1-h8-G7C" firstAttribute="centerX" secondItem="Unk-t8-Vy6" secondAttribute="centerX" id="5Po-Uu-yGP"/>
+                            <constraint firstItem="L9r-xb-sFE" firstAttribute="top" secondItem="G5x-ps-AK5" secondAttribute="bottom" constant="8" id="6x6-6H-Zke"/>
+                            <constraint firstItem="G5x-ps-AK5" firstAttribute="top" secondItem="jaf-BA-mng" secondAttribute="bottom" constant="8" id="C6n-EZ-QeG"/>
+                            <constraint firstItem="jaf-BA-mng" firstAttribute="top" secondItem="Unk-t8-Vy6" secondAttribute="top" constant="20" id="OuR-iI-fzL"/>
+                            <constraint firstItem="xHe-vo-YwT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="L9r-xb-sFE" secondAttribute="trailing" constant="8" symbolic="YES" id="TIk-27-F2A"/>
+                            <constraint firstItem="G5x-ps-AK5" firstAttribute="leading" secondItem="Unk-t8-Vy6" secondAttribute="leading" constant="20" id="ZoS-ZG-eTY"/>
+                            <constraint firstItem="jaf-BA-mng" firstAttribute="leading" secondItem="Unk-t8-Vy6" secondAttribute="leading" constant="20" id="cQ0-DF-oVn"/>
+                            <constraint firstItem="xHe-vo-YwT" firstAttribute="top" secondItem="G5x-ps-AK5" secondAttribute="bottom" constant="8" id="iGH-xf-Pxe"/>
+                            <constraint firstItem="Unk-t8-Vy6" firstAttribute="trailing" secondItem="G5x-ps-AK5" secondAttribute="trailing" constant="20" id="mc6-dl-cEb"/>
+                            <constraint firstItem="Unk-t8-Vy6" firstAttribute="trailing" secondItem="jaf-BA-mng" secondAttribute="trailing" constant="20" id="tkb-dS-ZL6"/>
+                            <constraint firstItem="Ss1-h8-G7C" firstAttribute="centerY" secondItem="Unk-t8-Vy6" secondAttribute="centerY" id="ziI-Rt-Fm2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Unk-t8-Vy6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fPC-9S-wjH"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="jaf-BA-mng" id="fQc-4x-ktV"/>
+                        <outlet property="passwordTextField" destination="G5x-ps-AK5" id="kMu-xu-l6x"/>
+                        <segue destination="WxO-Kt-ek1" kind="show" identifier="ShowListSegue" id="4zw-kE-D6o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6c3-BP-Cn2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-597.10144927536237" y="-165.40178571428569"/>
+        </scene>
         <!--Movie Quotes Table View Controller-->
         <scene sceneID="neH-lJ-hik">
             <objects>
@@ -122,12 +198,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WxO-Kt-ek1" kind="relationship" relationship="rootViewController" id="7LQ-WY-YqK"/>
+                        <segue destination="MOG-nF-RwB" kind="relationship" relationship="rootViewController" id="se6-CA-b0C"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbT-2W-u2t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-581.15942028985512" y="-165.40178571428569"/>
+            <point key="canvasLocation" x="-1649" y="-165"/>
         </scene>
     </scenes>
 </document>

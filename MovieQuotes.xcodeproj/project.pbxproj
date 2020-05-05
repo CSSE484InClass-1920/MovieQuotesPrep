@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47BFF48C6A66177F4509E50B /* Pods_MovieQuotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27B38E60ABE5B5B353B0926C /* Pods_MovieQuotes.framework */; };
+		FD5B77E82461C396005CF2CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5B77E72461C396005CF2CC /* LoginViewController.swift */; };
 		FD6F6977245884FF00FABEB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F6976245884FF00FABEB0 /* AppDelegate.swift */; };
 		FD6F6979245884FF00FABEB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6F6978245884FF00FABEB0 /* SceneDelegate.swift */; };
 		FD6F6980245884FF00FABEB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD6F697E245884FF00FABEB0 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 		117C7CD1DE54B07579A6DA11 /* Pods-MovieQuotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes.release.xcconfig"; sourceTree = "<group>"; };
 		27B38E60ABE5B5B353B0926C /* Pods_MovieQuotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieQuotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31804838475307A3787BB816 /* Pods-MovieQuotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieQuotes/Pods-MovieQuotes.debug.xcconfig"; sourceTree = "<group>"; };
+		FD5B77E72461C396005CF2CC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD6F6973245884FF00FABEB0 /* MovieQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD6F6976245884FF00FABEB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD6F6978245884FF00FABEB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				FD6F698E24588D2000FABEB0 /* MovieQuotesTableViewController.swift */,
 				FD6F699024588EF400FABEB0 /* MovieQuote.swift */,
 				FD6F69922458948300FABEB0 /* MovieQuoteDetailViewController.swift */,
+				FD5B77E72461C396005CF2CC /* LoginViewController.swift */,
 			);
 			path = MovieQuotes;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Rosefire/Rosefire.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -212,6 +216,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rosefire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -231,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD5B77E82461C396005CF2CC /* LoginViewController.swift in Sources */,
 				FD6F6977245884FF00FABEB0 /* AppDelegate.swift in Sources */,
 				FD6F69932458948300FABEB0 /* MovieQuoteDetailViewController.swift in Sources */,
 				FD6F699124588EF400FABEB0 /* MovieQuote.swift in Sources */,
