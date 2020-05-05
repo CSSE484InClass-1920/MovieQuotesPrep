@@ -90,10 +90,10 @@ public class Rosefire : NSObject {
         json = json["claims"] as! [String:Any]
         json["uid"] = username
       }
-      self.username = json["uid"] as! String
-      self.name = json["name"] as! String
-      self.email = json["email"] as! String
-      self.group = json["group"] as! String
+      self.username = (json["uid"] as! String)
+      self.name = (json["name"] as! String)
+      self.email = (json["email"] as! String)
+      self.group = (json["group"] as! String)
 
     } catch {
       print("Error: Couldn't parse Rosefire JWT")
@@ -107,7 +107,7 @@ private class WebviewController : UIViewController, WKScriptMessageHandler, WKNa
 
   var webview: WKWebView?
   var registryToken: String?
-  var callback: RosefireCallback
+  var callback: RosefireCallback = nil
 
   fileprivate override func loadView() {
     super.loadView()

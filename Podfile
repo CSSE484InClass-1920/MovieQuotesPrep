@@ -14,4 +14,5 @@ target 'MovieQuotes' do
   pod 'Firebase/Auth'
 
   pod 'Rosefire', :git => 'https://ada.csse.rose-hulman.edu/rosefire/ios-sdk.git'
+  pod 'GoogleSignIn'
 end
